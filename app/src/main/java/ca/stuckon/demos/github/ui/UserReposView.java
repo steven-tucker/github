@@ -1,5 +1,6 @@
 package ca.stuckon.demos.github.ui;
 
+import android.animation.LayoutTransition;
 import android.content.Context;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
@@ -61,9 +62,6 @@ public class UserReposView extends RelativeLayout {
                 notifySearchSubmit();
             }
         });
-
-//        recyclerView.add
-//        recyclerView.addOnItemTouchListener(new RecyclerItemCli);
     }
 
     private void notifySearchSubmit() {

@@ -1,23 +1,21 @@
 package ca.stuckon.demos.github.framework;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialog;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
 import ca.stuckon.core.network.SimpleResponseListener;
-import ca.stuckon.demos.github.R;
 import ca.stuckon.demos.github.network.GithubRequestFactory;
 import ca.stuckon.demos.github.network.Repo;
 import ca.stuckon.demos.github.network.User;
+import ca.stuckon.demos.github.ui.RepoDetailsView;
 import ca.stuckon.demos.github.ui.UserReposView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     private UserReposView view;
 
@@ -44,23 +42,16 @@ public class MainActivity extends Activity {
 
     private void hideKeyboard() {
         InputMethodManager inputManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-        inputManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        if (inputManager != null) {
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
     private void showDialog(Repo repo) {
-        //TODO show dialog
-        Log.d("TEST", "Repo clicked: " + repo.getName());
         BottomSheetDialog dialog = new BottomSheetDialog(this);
-        dialog.setContentView(R.layout.dialog_repo_details);
-        TextView a = dialog.findViewById(R.id.details_a);
-        TextView b = dialog.findViewById(R.id.details_b);
-        TextView c = dialog.findViewById(R.id.details_c);
-        a.setText(repo.getName());
-        b.setText("" + repo.getStargazers());
-        c.setText("" + repo.getForks());
-        //updated Jul 6, 2017 12:15:11 AM
-        //stars
-        //fork
+        RepoDetailsView view = new RepoDetailsView(this);
+        view.setRepo(repo);
+        dialog.setContentView(view);
         dialog.show();
     }
 
