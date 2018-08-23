@@ -1,15 +1,12 @@
 package ca.stuckon.demos.github.ui;
 
-import android.animation.LayoutTransition;
 import android.content.Context;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -88,7 +85,6 @@ public class UserReposView extends RelativeLayout {
     }
 
     public void setRepos(List<Repo> repos) {
-        Log.d("TEST", "setting repos");
         adapter.setData(repos);
     }
 

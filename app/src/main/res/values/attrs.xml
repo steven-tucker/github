@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TwoTextView" >
+        <attr name="rightText" format="string"/>
+        <attr name="rightSize" format="dimension|reference"/>
+        <attr name="rightColor" format="color|reference"/>
+        <attr name="rightBold" format="boolean"/>
+    </declare-styleable>
+</resources>

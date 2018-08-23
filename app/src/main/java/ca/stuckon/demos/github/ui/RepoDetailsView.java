@@ -3,16 +3,21 @@ package ca.stuckon.demos.github.ui;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import ca.stuckon.core.ui.TwoTextView;
 import ca.stuckon.demos.github.R;
 import ca.stuckon.demos.github.network.Repo;
 
 public class RepoDetailsView extends FrameLayout {
+
+    private static final String FORMAT_DATE = "MMM d, yyyy h:mm:ss a";
 
     private TwoTextView updatedView;
     private TwoTextView starsView;
@@ -36,7 +41,10 @@ public class RepoDetailsView extends FrameLayout {
     }
 
     public void setRepo(Repo repo) {
-        updatedView.setRightText("Date");//TODO format updated Jul 6, 2017 12:15:11 AM
+        Date updated = repo.getUpdated();
+        if (updated != null) {
+            updatedView.setRightText(new SimpleDateFormat(FORMAT_DATE, Locale.CANADA).format(updated));
+        }
         starsView.setRightText(String.valueOf(repo.getStargazers()));
         forksView.setRightText(String.valueOf(repo.getForks()));
     }

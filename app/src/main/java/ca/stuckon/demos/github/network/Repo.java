@@ -2,9 +2,14 @@ package ca.stuckon.demos.github.network;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class Repo {
+
+    private static final String SERVER_DATE = "yyyy-MM-dd'T'HH:mm:ssZ";
 
     @SerializedName("name")
     private String name;
@@ -14,6 +19,7 @@ public class Repo {
 
     @SerializedName("updated_at")
     private String updated;
+    private transient Date updateDate;
 
     @SerializedName("stargazers_count")
     private Integer stargazers;
@@ -30,7 +36,14 @@ public class Repo {
     }
 
     public Date getUpdated() {
-        return null;//TODO "2017-08-14T08:08:10Z"
+        if (updateDate == null && updated != null) {
+            try {
+                updateDate = new SimpleDateFormat(SERVER_DATE, Locale.CANADA).parse(updated.replace("Z", "-0000"));
+            } catch (ParseException e) {
+                return null;
+            }
+        }
+        return updateDate;
     }
 
     public int getStargazers() {

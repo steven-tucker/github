@@ -19,6 +19,8 @@
             android:textColor="#757575"
             android:textSize="14sp"
             android:textStyle="bold"
+            app:rightColor="#757575"
+            app:rightBold="false"
             android:text="Last Updated"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -29,6 +31,8 @@
             android:text="Stars"
             android:textColor="#757575"
             android:textStyle="bold"
+            app:rightColor="#757575"
+            app:rightBold="false"
             android:textSize="14sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -40,6 +44,8 @@
             android:textStyle="bold"
             android:textColor="#757575"
             android:textSize="14sp"
+            app:rightBold="false"
+            app:rightColor="#757575"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
