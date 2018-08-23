@@ -3,6 +3,7 @@ package ca.stuckon.demos.github.framework;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         RepoDetailsView view = new RepoDetailsView(this);
         view.setRepo(repo);
         dialog.setContentView(view);
+        ((View)view.getParent()).setBackgroundDrawable(null);
         dialog.show();
     }
 

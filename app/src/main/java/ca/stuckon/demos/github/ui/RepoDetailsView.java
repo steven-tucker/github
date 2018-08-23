@@ -6,12 +6,13 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.widget.FrameLayout;
 
 import ca.stuckon.core.ui.TwoTextView;
 import ca.stuckon.demos.github.R;
 import ca.stuckon.demos.github.network.Repo;
 
-public class RepoDetailsView extends CardView {
+public class RepoDetailsView extends FrameLayout {
 
     private TwoTextView updatedView;
     private TwoTextView starsView;

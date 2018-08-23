@@ -45,6 +45,8 @@ public class UserReposView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.user_repos_view, this);
+        setBackgroundColor(0xFAFAFA);
+        setFocusableInTouchMode(true);
 
         inputLayout = findViewById(R.id.userInputLayout);
         inputEditText = findViewById(R.id.userInputEditText);
